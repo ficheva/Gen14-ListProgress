@@ -8,9 +8,64 @@
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "authenticationView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "progressDataProvider",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "home",
+          "enableRegistration": false
+        }
+      ],
+      "title": "Authentication",
+      "addToNavigation": true,
+      "icon": "action"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "dataListView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:list",
+          "name": "dataListViewModel",
+          "dataProvider": "progressDataProvider",
+          "collection": "Person",
+          "iconField": false,
+          "headerField": "firstName",
+          "subHeaderField": "lastName",
+          "filterField": "firstName",
+          "masterDetails": true,
+          "detailHeaderField": "firstName",
+          "detailSubHeaderField": "lastName",
+          "detailDescriptionField": "phone",
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ],
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "progressDataProvider",
+      "catalogContent": "[{\"name\":\"Person\",\"path\":\"jsdo\",\"displayName\":\"Person\",\"idProperty\":\"id\",\"schema\":{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"Person\":{\"type\":\"array\",\"items\":{\"additionalProperties\":false,\"properties\":{\"_id\":{\"type\":\"string\",\"default\":\"\",\"title\":\"_id\",\"name\":\"_id\"},\"comment\":{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},\"contactOwner\":{\"type\":\"string\",\"title\":\"Contact Owner\",\"name\":\"contactOwner\"},\"createdAt\":{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},\"createdBy\":{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},\"email\":{\"type\":\"string\",\"title\":\"Email Address\",\"name\":\"email\"},\"fax\":{\"type\":\"string\",\"title\":\"Fax\",\"name\":\"fax\"},\"firstName\":{\"type\":\"string\",\"title\":\"First Name\",\"name\":\"firstName\"},\"id\":{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},\"Image\":{\"type\":\"mr.file\",\"title\":\"Image\",\"format\":\"string-json\",\"contentEncoding\":\"binary\",\"name\":\"Image\"},\"Image_Url\":{\"type\":\"string\",\"title\":\"Image_Url\",\"name\":\"Image_Url\"},\"lastName\":{\"type\":\"string\",\"title\":\"Last Name\",\"name\":\"lastName\"},\"middleName\":{\"type\":\"string\",\"title\":\"Middle Name\",\"name\":\"middleName\"},\"mobilePhone\":{\"type\":\"string\",\"title\":\"Mobile Phone\",\"name\":\"mobilePhone\"},\"Name\":{\"type\":\"string\",\"title\":\"Name\",\"name\":\"Name\"},\"phone\":{\"type\":\"string\",\"title\":\"Phone\",\"name\":\"phone\"},\"State_\":{\"type\":\"string\",\"title\":\"State\",\"name\":\"State_\"},\"tag\":{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},\"title\":{\"type\":\"string\",\"title\":\"Title\",\"name\":\"title\"},\"updatedAt\":{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},\"updatedBy\":{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"},\"vCard\":{\"type\":\"string\",\"title\":\"vCard File\",\"name\":\"vCard\"}}}}}},\"dataDefinitions\":{},\"operations\":[{\"name\":\"create\",\"path\":\"/create2?output=json&useIds=true&objName=Person\",\"type\":\"create\",\"verb\":\"post\",\"params\":[{\"name\":\"Person\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/create2?output=json&useIds=true&objName=Person\"},{\"name\":\"read\",\"path\":\"/selectQuery?filter={filter}&objName=Person\",\"type\":\"read\",\"verb\":\"get\",\"mappingType\":\"JFP\",\"capabilities\":\"sqlQuery,top,skip,id,orderBy\",\"params\":[{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"},{\"name\":\"filter\",\"type\":\"QUERY\",\"xType\":\"string\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/selectQuery?filter={filter}&objName=Person\"},{\"name\":\"update\",\"path\":\"/update2?output=json&useIds=true&objName=Person\",\"type\":\"update\",\"verb\":\"put\",\"params\":[{\"name\":\"Person\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/update2?output=json&useIds=true&objName=Person\"},{\"name\":\"delete\",\"path\":\"/delete?output=json&id={id}&objName=Person\",\"type\":\"delete\",\"verb\":\"delete\",\"params\":[{\"name\":\"Person\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/delete?output=json&id={id}&objName=Person\"},{\"name\":\"count\",\"path\":\"/getCount?filter={filter}&objName=Person\",\"type\":\"invoke\",\"verb\":\"get\",\"params\":[{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/getCount?filter={filter}&objName=Person\"},{\"name\":\"getView_All_Persons\",\"path\":\"/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=210296373&objName=Person\",\"type\":\"invoke\",\"verb\":\"get\",\"mergeMode\":\"EMPTY\",\"params\":[{\"name\":\"Person\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=210296373&objName=Person\"}],\"fn\":{\"count\":{},\"getView_All_Persons\":{}},\"url\":\"https://web-main-int.rlb-test.progress.com/rest/jsdo\",\"fields\":{\"Person\":[{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},{\"type\":\"string\",\"title\":\"Contact Owner\",\"name\":\"contactOwner\"},{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},{\"type\":\"string\",\"title\":\"Email Address\",\"name\":\"email\"},{\"type\":\"string\",\"title\":\"Fax\",\"name\":\"fax\"},{\"type\":\"string\",\"title\":\"First Name\",\"name\":\"firstName\"},{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},{\"type\":\"mr.file\",\"title\":\"Image\",\"format\":\"string-json\",\"contentEncoding\":\"binary\",\"name\":\"Image\"},{\"type\":\"string\",\"title\":\"Image_Url\",\"name\":\"Image_Url\"},{\"type\":\"string\",\"title\":\"Last Name\",\"name\":\"lastName\"},{\"type\":\"string\",\"title\":\"Middle Name\",\"name\":\"middleName\"},{\"type\":\"string\",\"title\":\"Mobile Phone\",\"name\":\"mobilePhone\"},{\"type\":\"string\",\"title\":\"Name\",\"name\":\"Name\"},{\"type\":\"string\",\"title\":\"Phone\",\"name\":\"phone\"},{\"type\":\"string\",\"title\":\"State\",\"name\":\"State_\"},{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},{\"type\":\"string\",\"title\":\"Title\",\"name\":\"title\"},{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"},{\"type\":\"string\",\"title\":\"vCard File\",\"name\":\"vCard\"}]},\"primaryKeys\":{},\"_tempTableName\":\"Person\",\"dataProperty\":\"Person\",\"generic\":{}}]",
+      "title": "Progress Data Service",
+      "source": "jsdo",
+      "url": "https://web-main-int.rlb-test.progress.com/rest/jsdo",
+      "catalogUrl": "https://web-main-int.rlb-test.progress.com/rest/jsdo/catalog/fichevatest.json",
+      "authentication": "form"
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",
